@@ -40,8 +40,8 @@ namespace ReportExport
             {
                 DataTable dataTable = new DataTable();
                 this.datas = new List<Data>();
-                //                String sqlConnectionURL = "server=" + txtURL.Text + ";database=" + txtDBName.Text + ";UID=" + txtUser.Text + ";password=" + txtPassword.Text;
-                String sqlConnectionURL = "server=localhost;database=showroomhonda;UID=sa;password=1234";
+                               String sqlConnectionURL = "server=" + txtURL.Text + ";database=" + txtDBName.Text + ";UID=" + txtUser.Text + ";password=" + txtPassword.Text;
+                //String sqlConnectionURL = "server=localhost;database=showroomhonda;UID=sa;password=1234";
                 SqlConnection sqlConnection = new SqlConnection(sqlConnectionURL);
                 SqlCommand cmd = new SqlCommand("SELECT * FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY FRAME_NO) as row FROm v_SCTT) a WHERE a.row > 5 and a.row <= 10", sqlConnection);
                 SqlDataReader sqlDataReader = null;
