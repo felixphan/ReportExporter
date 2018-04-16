@@ -12,10 +12,12 @@ namespace ReportExport
         public String dealerCode { get; set; }
         public String repairNo { get; set; }
         public String typeCD { get; set; }
+        [System.ComponentModel.Browsable(false)]
         public String wrNo { get; set; }
         public String frameNo { get; set; }
         public String eNo { get; set; }
         public String plateNo { get; set; }
+        [System.ComponentModel.Browsable(false)]
         public int km { get; set; }
         public String dop { get; set; }
         public String cusName { get; set; }
@@ -27,7 +29,9 @@ namespace ReportExport
         public String dName { get; set; }
         public String empReceive { get; set; }
         public String empRepair { get; set; }
+        [System.ComponentModel.Browsable(false)]
         public String fuel { get; set; }
+        [System.ComponentModel.Browsable(false)]
         public String printed { get; set; }
         public String dateIn { get; set; }
         public String dateOut { get; set; }
@@ -35,6 +39,7 @@ namespace ReportExport
         public String cusRequest { get; set; }
         public String insResult { get; set; }
         public String beforeRepair { get; set; }
+        [System.ComponentModel.Browsable(false)]
         public List<Item> items { get; set; }
         public class Item
         {

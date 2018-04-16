@@ -45,12 +45,16 @@
             this.txtDBName = new System.Windows.Forms.TextBox();
             this.txtRepairNo = new System.Windows.Forms.TextBox();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(369, 128);
+            this.button1.Location = new System.Drawing.Point(94, 128);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -60,8 +64,11 @@
             // 
             // lblURL
             // 
+            this.lblURL.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblURL.AutoSize = true;
-            this.lblURL.Location = new System.Drawing.Point(12, 18);
+            this.lblURL.Location = new System.Drawing.Point(18, 7);
             this.lblURL.Name = "lblURL";
             this.lblURL.Size = new System.Drawing.Size(47, 13);
             this.lblURL.TabIndex = 1;
@@ -69,8 +76,11 @@
             // 
             // lblUser
             // 
+            this.lblUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(30, 52);
+            this.lblUser.Location = new System.Drawing.Point(36, 41);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(29, 13);
             this.lblUser.TabIndex = 2;
@@ -78,8 +88,11 @@
             // 
             // lblPwd
             // 
+            this.lblPwd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPwd.AutoSize = true;
-            this.lblPwd.Location = new System.Drawing.Point(472, 52);
+            this.lblPwd.Location = new System.Drawing.Point(3, 44);
             this.lblPwd.Name = "lblPwd";
             this.lblPwd.Size = new System.Drawing.Size(53, 13);
             this.lblPwd.TabIndex = 3;
@@ -87,8 +100,11 @@
             // 
             // lblRepairNo
             // 
+            this.lblRepairNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRepairNo.AutoSize = true;
-            this.lblRepairNo.Location = new System.Drawing.Point(1, 87);
+            this.lblRepairNo.Location = new System.Drawing.Point(7, 76);
             this.lblRepairNo.Name = "lblRepairNo";
             this.lblRepairNo.Size = new System.Drawing.Size(58, 13);
             this.lblRepairNo.TabIndex = 4;
@@ -96,8 +112,11 @@
             // 
             // lblCreateFrom
             // 
+            this.lblCreateFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCreateFrom.AutoSize = true;
-            this.lblCreateFrom.Location = new System.Drawing.Point(461, 87);
+            this.lblCreateFrom.Location = new System.Drawing.Point(3, 79);
             this.lblCreateFrom.Name = "lblCreateFrom";
             this.lblCreateFrom.Size = new System.Drawing.Size(64, 13);
             this.lblCreateFrom.TabIndex = 5;
@@ -105,25 +124,31 @@
             // 
             // dtpFrom
             // 
+            this.dtpFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpFrom.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFrom.Location = new System.Drawing.Point(545, 87);
+            this.dtpFrom.Location = new System.Drawing.Point(76, 79);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(155, 20);
             this.dtpFrom.TabIndex = 7;
             // 
             // dtpTo
             // 
+            this.dtpTo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpTo.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTo.Location = new System.Drawing.Point(706, 87);
+            this.dtpTo.Location = new System.Drawing.Point(237, 79);
             this.dtpTo.Name = "dtpTo";
-            this.dtpTo.Size = new System.Drawing.Size(148, 20);
+            this.dtpTo.Size = new System.Drawing.Size(167, 20);
             this.dtpTo.TabIndex = 8;
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(450, 128);
+            this.btnReset.Location = new System.Drawing.Point(175, 128);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 9;
@@ -133,7 +158,7 @@
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(288, 128);
+            this.btnView.Location = new System.Drawing.Point(13, 128);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(75, 23);
             this.btnView.TabIndex = 10;
@@ -143,30 +168,42 @@
             // 
             // txtURL
             // 
-            this.txtURL.Location = new System.Drawing.Point(69, 15);
+            this.txtURL.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtURL.Location = new System.Drawing.Point(75, 4);
             this.txtURL.Name = "txtURL";
-            this.txtURL.Size = new System.Drawing.Size(293, 20);
+            this.txtURL.Size = new System.Drawing.Size(354, 20);
             this.txtURL.TabIndex = 11;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(545, 49);
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassword.Location = new System.Drawing.Point(76, 41);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(309, 20);
+            this.txtPassword.Size = new System.Drawing.Size(328, 20);
             this.txtPassword.TabIndex = 12;
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(69, 49);
+            this.txtUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUser.Location = new System.Drawing.Point(75, 38);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(293, 20);
+            this.txtUser.Size = new System.Drawing.Size(354, 20);
             this.txtUser.TabIndex = 13;
             // 
             // lblDBName
             // 
+            this.lblDBName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDBName.AutoSize = true;
-            this.lblDBName.Location = new System.Drawing.Point(472, 19);
+            this.lblDBName.Location = new System.Drawing.Point(3, 11);
             this.lblDBName.Name = "lblDBName";
             this.lblDBName.Size = new System.Drawing.Size(53, 13);
             this.lblDBName.TabIndex = 14;
@@ -174,25 +211,61 @@
             // 
             // txtDBName
             // 
-            this.txtDBName.Location = new System.Drawing.Point(545, 15);
+            this.txtDBName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDBName.Location = new System.Drawing.Point(76, 7);
             this.txtDBName.Name = "txtDBName";
-            this.txtDBName.Size = new System.Drawing.Size(309, 20);
+            this.txtDBName.Size = new System.Drawing.Size(328, 20);
             this.txtDBName.TabIndex = 15;
             // 
             // txtRepairNo
             // 
-            this.txtRepairNo.Location = new System.Drawing.Point(69, 84);
+            this.txtRepairNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRepairNo.Location = new System.Drawing.Point(75, 73);
             this.txtRepairNo.Name = "txtRepairNo";
-            this.txtRepairNo.Size = new System.Drawing.Size(293, 20);
+            this.txtRepairNo.Size = new System.Drawing.Size(354, 20);
             this.txtRepairNo.TabIndex = 16;
             // 
             // dgvData
             // 
+            this.dgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Location = new System.Drawing.Point(15, 157);
             this.dgvData.Name = "dgvData";
             this.dgvData.Size = new System.Drawing.Size(839, 281);
             this.dgvData.TabIndex = 17;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.txtUser);
+            this.panel1.Controls.Add(this.lblURL);
+            this.panel1.Controls.Add(this.txtRepairNo);
+            this.panel1.Controls.Add(this.lblUser);
+            this.panel1.Controls.Add(this.lblRepairNo);
+            this.panel1.Controls.Add(this.txtURL);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(432, 110);
+            this.panel1.TabIndex = 18;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblDBName);
+            this.panel2.Controls.Add(this.lblPwd);
+            this.panel2.Controls.Add(this.lblCreateFrom);
+            this.panel2.Controls.Add(this.txtDBName);
+            this.panel2.Controls.Add(this.dtpFrom);
+            this.panel2.Controls.Add(this.dtpTo);
+            this.panel2.Controls.Add(this.txtPassword);
+            this.panel2.Location = new System.Drawing.Point(450, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(412, 110);
+            this.panel2.TabIndex = 19;
             // 
             // MainForm
             // 
@@ -201,30 +274,22 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(874, 448);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvData);
-            this.Controls.Add(this.txtRepairNo);
-            this.Controls.Add(this.txtDBName);
-            this.Controls.Add(this.lblDBName);
-            this.Controls.Add(this.txtUser);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtURL);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.dtpTo);
-            this.Controls.Add(this.dtpFrom);
-            this.Controls.Add(this.lblCreateFrom);
-            this.Controls.Add(this.lblRepairNo);
-            this.Controls.Add(this.lblPwd);
-            this.Controls.Add(this.lblUser);
-            this.Controls.Add(this.lblURL);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -247,5 +312,7 @@
         private System.Windows.Forms.TextBox txtDBName;
         private System.Windows.Forms.TextBox txtRepairNo;
         private System.Windows.Forms.DataGridView dgvData;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

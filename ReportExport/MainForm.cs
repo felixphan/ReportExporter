@@ -95,7 +95,8 @@ namespace ReportExport
                             Data.Item item = new Data.Item();
                             item.discountP = NullToInt(sqlDataReader["DISCOUNT_P"]);
                             item.discountW = NullToInt(sqlDataReader["DISCOUNT_W"]);
-                            item.repairDesc = NullToString(sqlDataReader["REPAIR_DESC"]);
+                            //TODO: Repair Desc not in SQL
+                            item.repairDesc = "Repair Desc";
                             item.rate0 = NullToInt(sqlDataReader["RATE0"]);
                             item.partNo = NullToString(sqlDataReader["PART_NO"]);
                             item.partName = NullToString(sqlDataReader["PART_NAME"]);
@@ -253,6 +254,7 @@ namespace ReportExport
             using (var file = new FileStream("D:\\Workbook.xlsx", FileMode.CreateNew, FileAccess.ReadWrite))
             {
                 workbook.Write(file);
+                MessageBox.Show("Create File Succesfully");
             }
         }
 
