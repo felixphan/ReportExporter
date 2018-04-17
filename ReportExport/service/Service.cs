@@ -128,13 +128,9 @@ namespace ReportExport
                     }
                 }
             }
-            //// Delete if existed
-            if (File.Exists("D:\\Workbook.xlsx"))
-            {
-                File.Delete("D:\\Workbook.xlsx");
-            }
 
-            using (var file = new FileStream("D:\\Workbook.xlsx", FileMode.CreateNew, FileAccess.ReadWrite))
+            String pathExport = "D:\\";
+            using (var file = new FileStream(pathExport + "Workbook" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx", FileMode.CreateNew, FileAccess.ReadWrite))
             {
                 workbook.Write(file);
             }

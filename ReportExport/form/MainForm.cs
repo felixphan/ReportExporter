@@ -15,6 +15,8 @@ namespace ReportExport
         public MainForm()
         {
             InitializeComponent();
+            dtpFrom.Value = DateTime.Now.AddDays(-30);
+            dtpTo.Value = DateTime.Now;
             // Initialize Service
             service = new Service();
         }
