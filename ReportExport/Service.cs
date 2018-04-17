@@ -2,13 +2,8 @@
 using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ReportExport
 {
@@ -93,10 +88,12 @@ namespace ReportExport
                 firstRow.CreateCell(24).SetCellValue(data.cusRequest);
                 firstRow.CreateCell(25).SetCellValue(data.insResult);
                 firstRow.CreateCell(26).SetCellValue(data.beforeRepair);
+                // Write Item Data
                 if (data.items != null && data.items.Count > 0)
                 {
                     foreach (Data.Item item in data.items)
                     {
+                        // Have 1 item only
                         if (data.items.Count == 1)
                         {
                             IRow childRow = sheet.GetRow(i);
@@ -131,6 +128,12 @@ namespace ReportExport
                     }
                 }
             }
+            //// Delete if existed
+            if (File.Exists("D:\\Workbook.xlsx"))
+            {
+                File.Delete("D:\\Workbook.xlsx");
+            }
+
             using (var file = new FileStream("D:\\Workbook.xlsx", FileMode.CreateNew, FileAccess.ReadWrite))
             {
                 workbook.Write(file);
@@ -149,12 +152,14 @@ namespace ReportExport
                 sqlDataReader = cmd.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
+                    // Loop to check existed data
                     Data data = datas.Find(x => x.repairNo == (String)sqlDataReader["REPAIR_NO"]);
                     if (data == null)
                     {
                         data = new Data(sqlDataReader);
                         datas.Add(data);
                     }
+                    // Get Item data
                     List<Data.Item> items = data.items;
                     if (items == null)
                     {
