@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ReportExport 
 {
-    class Data
+    public class Data
     {
         public String createDate { get; set; }
         public String dealerCode { get; set; }
