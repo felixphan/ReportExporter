@@ -57,7 +57,7 @@
             this.button1.Location = new System.Drawing.Point(94, 128);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 9;
             this.button1.Text = "Export";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnExportClick);
@@ -132,7 +132,7 @@
             this.dtpFrom.Location = new System.Drawing.Point(76, 79);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(155, 20);
-            this.dtpFrom.TabIndex = 7;
+            this.dtpFrom.TabIndex = 6;
             // 
             // dtpTo
             // 
@@ -144,14 +144,14 @@
             this.dtpTo.Location = new System.Drawing.Point(237, 79);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(167, 20);
-            this.dtpTo.TabIndex = 8;
+            this.dtpTo.TabIndex = 7;
             // 
             // btnReset
             // 
             this.btnReset.Location = new System.Drawing.Point(175, 128);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 9;
+            this.btnReset.TabIndex = 10;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -161,7 +161,7 @@
             this.btnView.Location = new System.Drawing.Point(13, 128);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(75, 23);
-            this.btnView.TabIndex = 10;
+            this.btnView.TabIndex = 8;
             this.btnView.Text = "View";
             this.btnView.UseVisualStyleBackColor = true;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
@@ -174,7 +174,7 @@
             this.txtURL.Location = new System.Drawing.Point(75, 4);
             this.txtURL.Name = "txtURL";
             this.txtURL.Size = new System.Drawing.Size(354, 20);
-            this.txtURL.TabIndex = 11;
+            this.txtURL.TabIndex = 1;
             // 
             // txtPassword
             // 
@@ -185,7 +185,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(328, 20);
-            this.txtPassword.TabIndex = 12;
+            this.txtPassword.TabIndex = 4;
             // 
             // txtUser
             // 
@@ -195,7 +195,7 @@
             this.txtUser.Location = new System.Drawing.Point(75, 38);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(354, 20);
-            this.txtUser.TabIndex = 13;
+            this.txtUser.TabIndex = 3;
             // 
             // lblDBName
             // 
@@ -217,7 +217,7 @@
             this.txtDBName.Location = new System.Drawing.Point(76, 7);
             this.txtDBName.Name = "txtDBName";
             this.txtDBName.Size = new System.Drawing.Size(328, 20);
-            this.txtDBName.TabIndex = 15;
+            this.txtDBName.TabIndex = 2;
             // 
             // txtRepairNo
             // 
@@ -227,7 +227,7 @@
             this.txtRepairNo.Location = new System.Drawing.Point(75, 73);
             this.txtRepairNo.Name = "txtRepairNo";
             this.txtRepairNo.Size = new System.Drawing.Size(354, 20);
-            this.txtRepairNo.TabIndex = 16;
+            this.txtRepairNo.TabIndex = 5;
             // 
             // dgvData
             // 
