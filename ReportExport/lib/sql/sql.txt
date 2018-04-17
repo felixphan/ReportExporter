@@ -1,8 +1,8 @@
-CREATE VIEW v_SCTT AS
 SELECT
-	a.UpdateDate AS CREATEDATE
-	, '33014' AS DEALER_CODE
-	, '33014' + '-' + format(getdate(), 'ddMMyy') + '-' + a.SoPhieu + '-O' AS REPAIR_NO
+	a.ID
+	, '{head_code}' AS DEALER_CODE
+	, a.UpdateDate AS CREATEDATE
+	, '{head_code}' + '-' + format(getdate(), 'ddMMyy') + '-' + a.SoPhieu + '-O' AS REPAIR_NO
 	, b.TenGoi AS TYPE_CD
 	, '' AS WR_NO
 	, a.Sokhung AS FRAME_NO
@@ -13,12 +13,12 @@ SELECT
 	, a.TenKH AS CUS_NAME
 	, a.Diachi AS CUS_ADDRESS
 	, a.DienThoai AS PHONE
-	, 'Ma tinh' AS P_CODE
-	, 'Ten tinh' AS P_NAME
-	, 'Ma huyen' AS D_CODE
-	, 'Ten huyen' AS D_NAME
+	, a.Diachi AS P_CODE
+	, a.Diachi AS P_NAME
+	, a.Diachi AS D_CODE
+	, a.Diachi AS D_NAME
 	, c.HoTen AS EMP_RECEIVE
-	, 'NV Sua' AS EMP_REPAIR
+	, '' AS EMP_REPAIR
 	, '' AS FUEL
 	, '' AS PRINTED
 	, a.NgayGioVao AS DATE_IN
@@ -32,6 +32,7 @@ SELECT
 	, a.TinhtrangTruocSua AS BEFORE_REPAIR
 	, f.ChietKhau AS DISCOUNT_P
 	, f.TienChietKhau AS DISCOUNT_W
+	, a.GhiChu2 AS REPAIR_DESC
 	, f.ThanhTien AS RATE0
 	, g.MaHang AS PART_NO
 	, g.TenHang AS PART_NAME
@@ -43,8 +44,7 @@ SELECT
 FROM tblPhieuDichVu a
 LEFT JOIN tblDanhMuc b ON b.MaDanhMuc = 'DMLoaiXeMay' AND a.LoaiXeId = b.ID
 LEFT JOIN tblUserEXIM c ON a.CreateID = c.ID
---LEFT JOIN tblStaffCardService d ON a.ID = d.ServiceId
---LEFT JOIN tblNhanVien e ON d.StaffId = e.ID
 LEFT JOIN tblPhieuDichVuCT f ON a.ID = f.PhieuDvID
 LEFT JOIN tblHangHoa g ON f.HangHoaID = g.ID
+WHERE a.UpdateDate BETWEEN CAST('{from_date}' AS datetime) AND CAST('{to_date}' AS datetime)
 ;

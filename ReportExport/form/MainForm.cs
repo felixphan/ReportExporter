@@ -22,7 +22,7 @@ namespace ReportExport
         private void btnReset_Click(object sender, EventArgs e)
         {
             // Clear all data
-            dtpFrom.Value = DateTime.Now;
+            dtpFrom.Value = DateTime.Now.AddDays(-30);
             dtpTo.Value = DateTime.Now;
             // Clear Resource
             dgvData.DataSource = null;
@@ -32,7 +32,10 @@ namespace ReportExport
         private void btnView_Click(object sender, EventArgs e)
         {
             //TODO: Append data from header no and date to settingForm.txtSQL;
-            String sqlCommand = "SELECT * FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY FRAME_NO) as row FROm v_SCTT) a WHERE a.row > 5 and a.row <= 10";
+            String defaultSql = settingForm.txtSQL.Text;
+            String sqlCommand = defaultSql.Replace("{head_code}", txtRepairNo.Text)
+                .Replace("{from_date}", dtpFrom.Value.ToString("yyyy/MM/dd HH:mm:ss"))
+                .Replace("{to_date}", dtpTo.Value.ToString("yyyy/MM/dd HH:mm:ss"));
 
             // Get Data
             datas = service.getDatas(settingForm.sqlConnectionURL, sqlCommand);
