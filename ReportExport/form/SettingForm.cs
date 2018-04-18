@@ -18,6 +18,27 @@ namespace ReportExport
         public SettingForm()
         {
             InitializeComponent();
+            // Initial DB_URL
+            if(this.txtURL.Text == "")
+            {
+                this.txtURL.Text = resource.DB_URL;
+            }
+            // Initial User
+            if (this.txtUser.Text == "")
+            {
+                this.txtUser.Text = resource.USER;
+            }
+            // Initial DB Name
+            if(this.txtDBName.Text == "")
+            {
+                this.txtDBName.Text = resource.DB_NAME;
+            }
+            // Initial Password
+            if(this.txtPassword.Text == "")
+            {
+                this.txtPassword.Text = resource.PASSWORD;
+            }
+            // Initial txtSQL
             if (this.txtSQL.Text == "")
             {
                 try

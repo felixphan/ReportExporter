@@ -129,7 +129,7 @@ namespace ReportExport
                 }
             }
 
-            String pathExport = "D:\\";
+            String pathExport = resource.PATH_EXPORT;
             using (var file = new FileStream(pathExport + "ExportSCTT_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx", FileMode.CreateNew, FileAccess.ReadWrite))
             {
                 workbook.Write(file);
