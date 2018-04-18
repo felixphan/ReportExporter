@@ -15,6 +15,7 @@ namespace ReportExport
     public partial class SettingForm : Form
     {
         public String sqlConnectionURL;
+        public Boolean isConnected;
         public SettingForm()
         {
             InitializeComponent();
@@ -57,7 +58,7 @@ namespace ReportExport
                     this.txtSQL.Clear();
                 }
             }
-
+            this.isConnected = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -69,6 +70,7 @@ namespace ReportExport
                 SqlConnection sqlConnection = new SqlConnection(sqlConnectionURL);
                 sqlConnection.Open();
                 sqlConnection.Close();
+                this.isConnected = true;
             }
             catch (Exception es)
             {

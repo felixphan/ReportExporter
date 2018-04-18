@@ -31,7 +31,7 @@ namespace ReportExport
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             this.lblRepairNo = new System.Windows.Forms.Label();
             this.lblCreateFrom = new System.Windows.Forms.Label();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
@@ -47,15 +47,15 @@ namespace ReportExport
             ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnExport
             // 
-            this.button1.Location = new System.Drawing.Point(100, 38);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Export";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnExportClick);
+            this.btnExport.Location = new System.Drawing.Point(100, 38);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.TabIndex = 9;
+            this.btnExport.Text = "Export";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExportClick);
             // 
             // lblRepairNo
             // 
@@ -188,7 +188,7 @@ namespace ReportExport
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.dtpTo);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnExport);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "MainForm";
@@ -202,7 +202,7 @@ namespace ReportExport
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Label lblRepairNo;
         private System.Windows.Forms.Label lblCreateFrom;
         private System.Windows.Forms.DateTimePicker dtpFrom;
