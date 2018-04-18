@@ -121,10 +121,10 @@
     <value>showroomhonda</value>
   </data>
   <data name="DB_URL" xml:space="preserve">
-    <value>localhost</value>
+    <value>MAYTINH-E66KDAM\SQLEXPRESS</value>
   </data>
   <data name="PASSWORD" xml:space="preserve">
-    <value>1234</value>
+    <value>123456</value>
   </data>
   <data name="PATH_EXPORT" xml:space="preserve">
     <value>D:/export</value>

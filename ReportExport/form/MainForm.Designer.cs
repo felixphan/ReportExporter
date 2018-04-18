@@ -1,4 +1,6 @@
-﻿namespace ReportExport
+﻿using System.Drawing;
+
+namespace ReportExport
 {
     partial class MainForm
     {
@@ -71,7 +73,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCreateFrom.AutoSize = true;
-            this.lblCreateFrom.Location = new System.Drawing.Point(456, 15);
+            this.lblCreateFrom.Location = new System.Drawing.Point(415, 15);
             this.lblCreateFrom.Name = "lblCreateFrom";
             this.lblCreateFrom.Size = new System.Drawing.Size(64, 13);
             this.lblCreateFrom.TabIndex = 5;
@@ -84,7 +86,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpFrom.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFrom.Location = new System.Drawing.Point(526, 12);
+            this.dtpFrom.Location = new System.Drawing.Point(485, 12);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(155, 20);
             this.dtpFrom.TabIndex = 6;
@@ -96,7 +98,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpTo.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTo.Location = new System.Drawing.Point(687, 12);
+            this.dtpTo.Location = new System.Drawing.Point(646, 12);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(167, 20);
             this.dtpTo.TabIndex = 7;
@@ -128,7 +130,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtRepairNo.Location = new System.Drawing.Point(81, 12);
             this.txtRepairNo.Name = "txtRepairNo";
-            this.txtRepairNo.Size = new System.Drawing.Size(354, 20);
+            this.txtRepairNo.Size = new System.Drawing.Size(304, 20);
             this.txtRepairNo.TabIndex = 5;
             // 
             // dgvData
@@ -144,11 +146,15 @@
             // 
             // btnSetting
             // 
-            this.btnSetting.Location = new System.Drawing.Point(263, 37);
+            this.btnSetting.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnSetting.FlatAppearance.BorderSize = 0;
+            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
+            this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSetting.Location = new System.Drawing.Point(833, 10);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(75, 23);
+            this.btnSetting.Size = new System.Drawing.Size(25, 23);
             this.btnSetting.TabIndex = 18;
-            this.btnSetting.Text = "Setting";
             this.btnSetting.UseVisualStyleBackColor = true;
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
