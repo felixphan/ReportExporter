@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ReportExport
@@ -59,6 +53,9 @@ namespace ReportExport
                 }
             }
             this.isConnected = false;
+            this.pnSQL.Height = 0;
+            this.pnButton.Location = new Point(this.pnButton.Location.X, this.pnButton.Location.Y - 350);
+            this.Height = this.Height - 350;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -71,14 +68,11 @@ namespace ReportExport
                 sqlConnection.Open();
                 sqlConnection.Close();
                 this.isConnected = true;
+                this.Close();
             }
             catch (Exception es)
             {
                 MessageBox.Show("Connect Failed");
-            }
-            finally
-            {
-                this.Close();
             }
         }
 
@@ -102,6 +96,38 @@ namespace ReportExport
         private void SettingForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String sqlConnectionURLTest = "server=" + txtURL.Text + ";database=" + txtDBName.Text + ";UID=" + txtUser.Text + ";password=" + txtPassword.Text;
+                //String sqlConnectionURL = "server=localhost;database=showroomhonda;UID=sa;password=1234";
+                SqlConnection sqlConnection = new SqlConnection(sqlConnectionURLTest);
+                sqlConnection.Open();
+                sqlConnection.Close();
+                MessageBox.Show("Connect Successful");
+            }
+            catch (Exception es)
+            {
+                MessageBox.Show("Connect Failed");
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (this.pnSQL.Height == 0)
+            {
+                this.pnSQL.Height = 350;
+                this.pnButton.Location = new Point(this.pnButton.Location.X, this.pnButton.Location.Y + 350);
+                this.Height = this.Height + 350;
+            } else
+            {
+                this.pnSQL.Height = 0;
+                this.pnButton.Location = new Point(this.pnButton.Location.X, this.pnButton.Location.Y - 350);
+                this.Height = this.Height - 350;
+            }
         }
     }
 }

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace ReportExport
@@ -24,6 +21,8 @@ namespace ReportExport
             //Disable Button
             this.btnView.Enabled = false;
             this.btnExport.Enabled = false;
+            //Initial Setting Form
+            settingForm = new SettingForm();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -63,7 +62,6 @@ namespace ReportExport
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
-            settingForm = new SettingForm();
             settingForm.FormClosed += new FormClosedEventHandler(settingFormClosed);
             settingForm.StartPosition = FormStartPosition.CenterParent;
             settingForm.ShowDialog(this);

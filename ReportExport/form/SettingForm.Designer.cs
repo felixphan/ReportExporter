@@ -33,10 +33,12 @@ namespace ReportExport
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnSQL = new System.Windows.Forms.Panel();
             this.lblSQL = new System.Windows.Forms.Label();
             this.txtSQL = new System.Windows.Forms.TextBox();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnTest = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblDBName = new System.Windows.Forms.Label();
             this.lblPwd = new System.Windows.Forms.Label();
@@ -48,16 +50,16 @@ namespace ReportExport
             this.lblUser = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.pnButton = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.pnSQL.SuspendLayout();
+            this.pnButton.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.lblSQL);
-            this.panel1.Controls.Add(this.txtSQL);
-            this.panel1.Controls.Add(this.btnReset);
-            this.panel1.Controls.Add(this.btnCancel);
-            this.panel1.Controls.Add(this.btnSave);
+            this.panel1.Controls.Add(this.pnButton);
+            this.panel1.Controls.Add(this.pnSQL);
             this.panel1.Controls.Add(this.lblDBName);
             this.panel1.Controls.Add(this.lblPwd);
             this.panel1.Controls.Add(this.txtDBName);
@@ -71,10 +73,19 @@ namespace ReportExport
             this.panel1.Size = new System.Drawing.Size(533, 523);
             this.panel1.TabIndex = 0;
             // 
+            // pnSQL
+            // 
+            this.pnSQL.Controls.Add(this.lblSQL);
+            this.pnSQL.Controls.Add(this.txtSQL);
+            this.pnSQL.Location = new System.Drawing.Point(9, 144);
+            this.pnSQL.Name = "pnSQL";
+            this.pnSQL.Size = new System.Drawing.Size(524, 348);
+            this.pnSQL.TabIndex = 26;
+            // 
             // lblSQL
             // 
             this.lblSQL.AutoSize = true;
-            this.lblSQL.Location = new System.Drawing.Point(9, 159);
+            this.lblSQL.Location = new System.Drawing.Point(3, 11);
             this.lblSQL.Name = "lblSQL";
             this.lblSQL.Size = new System.Drawing.Size(28, 13);
             this.lblSQL.TabIndex = 23;
@@ -85,16 +96,36 @@ namespace ReportExport
             this.txtSQL.AcceptsReturn = true;
             this.txtSQL.AcceptsTab = true;
             this.txtSQL.AllowDrop = true;
-            this.txtSQL.Location = new System.Drawing.Point(79, 153);
+            this.txtSQL.Location = new System.Drawing.Point(73, 5);
             this.txtSQL.Multiline = true;
             this.txtSQL.Name = "txtSQL";
             this.txtSQL.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtSQL.Size = new System.Drawing.Size(439, 338);
             this.txtSQL.TabIndex = 22;
             // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(354, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 25;
+            this.btnEdit.Text = "Edit SQL";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(111, 3);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 24;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(311, 497);
+            this.btnReset.Location = new System.Drawing.Point(273, 3);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 21;
@@ -102,19 +133,9 @@ namespace ReportExport
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(230, 497);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 20;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(149, 497);
+            this.btnSave.Location = new System.Drawing.Point(192, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 19;
@@ -211,6 +232,17 @@ namespace ReportExport
             this.lblUser.TabIndex = 6;
             this.lblUser.Text = "User";
             // 
+            // pnButton
+            // 
+            this.pnButton.Controls.Add(this.btnTest);
+            this.pnButton.Controls.Add(this.btnReset);
+            this.pnButton.Controls.Add(this.btnSave);
+            this.pnButton.Controls.Add(this.btnEdit);
+            this.pnButton.Location = new System.Drawing.Point(9, 498);
+            this.pnButton.Name = "pnButton";
+            this.pnButton.Size = new System.Drawing.Size(512, 33);
+            this.pnButton.TabIndex = 27;
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,6 +255,9 @@ namespace ReportExport
             this.Load += new System.EventHandler(this.SettingForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pnSQL.ResumeLayout(false);
+            this.pnSQL.PerformLayout();
+            this.pnButton.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -236,7 +271,6 @@ namespace ReportExport
         private System.Windows.Forms.Label lblUser;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblDBName;
         private System.Windows.Forms.Label lblPwd;
@@ -245,5 +279,9 @@ namespace ReportExport
         private System.Windows.Forms.Label lblSQL;
         public System.Windows.Forms.TextBox txtSQL;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.Panel pnSQL;
+        private System.Windows.Forms.Panel pnButton;
     }
 }
