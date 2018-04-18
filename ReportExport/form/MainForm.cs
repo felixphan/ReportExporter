@@ -28,6 +28,7 @@ namespace ReportExport
         private void btnReset_Click(object sender, EventArgs e)
         {
             // Clear all data
+            this.txtRepairNo.Clear();
             dtpFrom.Value = DateTime.Now.AddDays(-30);
             dtpTo.Value = DateTime.Now;
             // Clear Resource
