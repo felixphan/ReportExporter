@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ReportExport
@@ -15,6 +16,7 @@ namespace ReportExport
         public MainForm()
         {
             InitializeComponent();
+            pbLoading.Hide();
             dtpFrom.Value = DateTime.Now.AddDays(-30);
             dtpTo.Value = DateTime.Now;
             // Initialize Service
@@ -31,7 +33,7 @@ namespace ReportExport
             dgvData.Rows.Clear();
         }
 
-        private void btnView_Click(object sender, EventArgs e)
+        private async void btnView_Click(object sender, EventArgs e)
         {
             //TODO: Append data from header no and date to settingForm.txtSQL;
             String defaultSql = settingForm.txtSQL.Text;
@@ -40,8 +42,10 @@ namespace ReportExport
                 .Replace("{to_date}", dtpTo.Value.ToString("yyyy/MM/dd HH:mm:ss"));
 
             // Get Data
-            datas = service.getDatas(settingForm.sqlConnectionURL, sqlCommand);
-
+            pbLoading.Show();
+            pbLoading.Update();
+            datas = await service.getDatas(settingForm.sqlConnectionURL, sqlCommand);
+            pbLoading.Hide();
             // Binding Data to Data Grid View
             var bindingList = new BindingList<Data>(datas);
             var source = new BindingSource(bindingList, null);

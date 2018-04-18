@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace ReportExport
 {
@@ -136,7 +137,7 @@ namespace ReportExport
             }
         }
 
-        public List<Data> getDatas(String sqlConnectionURL, String sqlCommand)
+        public async Task<List<Data>> getDatas(String sqlConnectionURL, String sqlCommand)
         {
             SqlDataReader sqlDataReader = null;
             SqlConnection sqlConnection = new SqlConnection(sqlConnectionURL);
@@ -146,28 +147,32 @@ namespace ReportExport
             {
                 sqlConnection.Open();
                 sqlDataReader = cmd.ExecuteReader();
-                while (sqlDataReader.Read())
+                await Task.Run(() =>
                 {
-                    // Loop to check existed data
-                    Data data = datas.Find(x => x.repairNo == (String)sqlDataReader["REPAIR_NO"]);
-                    if (data == null)
+                    while (sqlDataReader.Read())
                     {
-                        data = new Data(sqlDataReader);
-                        datas.Add(data);
+                        // Loop to check existed data
+                        Data data = datas.Find(x => x.repairNo == (String)sqlDataReader["REPAIR_NO"]);
+                        if (data == null)
+                        {
+                            data = new Data(sqlDataReader);
+                            datas.Add(data);
+                        }
+                        // Get Item data
+                        List<Data.Item> items = data.items;
+                        if (items == null)
+                        {
+                            items = new List<Data.Item>();
+                            data.items = items;
+                        }
+                        if (sqlDataReader["DISCOUNT_P"] != null)
+                        {
+                            Data.Item item = new Data.Item(sqlDataReader);
+                            items.Add(item);
+                        }
                     }
-                    // Get Item data
-                    List<Data.Item> items = data.items;
-                    if (items == null)
-                    {
-                        items = new List<Data.Item>();
-                        data.items = items;
-                    }
-                    if (sqlDataReader["DISCOUNT_P"] != null)
-                    {
-                        Data.Item item = new Data.Item(sqlDataReader);
-                        items.Add(item);
-                    }
-                }
+                });
+
                 return datas;
             }
             finally

@@ -42,7 +42,9 @@ namespace ReportExport
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnSetting = new System.Windows.Forms.Button();
+            this.pbLoading = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -69,9 +71,8 @@ namespace ReportExport
             // 
             // lblCreateFrom
             // 
-            this.lblCreateFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCreateFrom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCreateFrom.AutoSize = true;
             this.lblCreateFrom.Location = new System.Drawing.Point(415, 15);
             this.lblCreateFrom.Name = "lblCreateFrom";
@@ -81,9 +82,8 @@ namespace ReportExport
             // 
             // dtpFrom
             // 
-            this.dtpFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpFrom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dtpFrom.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFrom.Location = new System.Drawing.Point(485, 12);
@@ -93,9 +93,8 @@ namespace ReportExport
             // 
             // dtpTo
             // 
-            this.dtpTo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpTo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dtpTo.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTo.Location = new System.Drawing.Point(646, 12);
@@ -125,9 +124,8 @@ namespace ReportExport
             // 
             // txtRepairNo
             // 
-            this.txtRepairNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRepairNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.txtRepairNo.Location = new System.Drawing.Point(81, 12);
             this.txtRepairNo.Name = "txtRepairNo";
             this.txtRepairNo.Size = new System.Drawing.Size(304, 20);
@@ -158,6 +156,21 @@ namespace ReportExport
             this.btnSetting.UseVisualStyleBackColor = true;
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
+            // pbLoading
+            // 
+            this.pbLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbLoading.BackColor = System.Drawing.Color.Transparent;
+            this.pbLoading.BackgroundImage = global::ReportExport.Properties.Resources.loading;
+            this.pbLoading.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbLoading.Location = new System.Drawing.Point(318, 133);
+            this.pbLoading.Name = "pbLoading";
+            this.pbLoading.Size = new System.Drawing.Size(199, 198);
+            this.pbLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbLoading.TabIndex = 19;
+            this.pbLoading.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,6 +178,7 @@ namespace ReportExport
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(874, 404);
+            this.Controls.Add(this.pbLoading);
             this.Controls.Add(this.btnSetting);
             this.Controls.Add(this.txtRepairNo);
             this.Controls.Add(this.lblRepairNo);
@@ -178,7 +192,9 @@ namespace ReportExport
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,5 +213,6 @@ namespace ReportExport
         private System.Windows.Forms.DataGridView dgvData;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnSetting;
+        private System.Windows.Forms.PictureBox pbLoading;
     }
 }

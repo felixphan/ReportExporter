@@ -68,7 +68,7 @@ namespace ReportExport
             this.panel1.Controls.Add(this.lblUser);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(533, 322);
+            this.panel1.Size = new System.Drawing.Size(533, 523);
             this.panel1.TabIndex = 0;
             // 
             // lblSQL
@@ -89,12 +89,12 @@ namespace ReportExport
             this.txtSQL.Multiline = true;
             this.txtSQL.Name = "txtSQL";
             this.txtSQL.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtSQL.Size = new System.Drawing.Size(439, 125);
+            this.txtSQL.Size = new System.Drawing.Size(439, 338);
             this.txtSQL.TabIndex = 22;
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(316, 284);
+            this.btnReset.Location = new System.Drawing.Point(311, 497);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 21;
@@ -104,7 +104,7 @@ namespace ReportExport
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(235, 284);
+            this.btnCancel.Location = new System.Drawing.Point(230, 497);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 20;
@@ -114,7 +114,7 @@ namespace ReportExport
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(154, 284);
+            this.btnSave.Location = new System.Drawing.Point(149, 497);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 19;
@@ -215,7 +215,7 @@ namespace ReportExport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 347);
+            this.ClientSize = new System.Drawing.Size(558, 548);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingForm";

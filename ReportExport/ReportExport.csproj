@@ -98,6 +98,9 @@
     <Compile Include="form\SettingForm.Designer.cs">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransparentPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="form\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,6 +112,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="form\SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>
@@ -146,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="lib\img\Honda.ico" />
+    <Content Include="lib\img\loading.gif" />
     <Content Include="lib\sql\sql.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
