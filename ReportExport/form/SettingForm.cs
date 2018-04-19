@@ -63,7 +63,6 @@ namespace ReportExport
             try
             {
                 sqlConnectionURL = "server=" + txtURL.Text + ";database=" + txtDBName.Text + ";UID=" + txtUser.Text + ";password=" + txtPassword.Text;
-                //String sqlConnectionURL = "server=localhost;database=showroomhonda;UID=sa;password=1234";
                 SqlConnection sqlConnection = new SqlConnection(sqlConnectionURL);
                 sqlConnection.Open();
                 sqlConnection.Close();
@@ -76,12 +75,9 @@ namespace ReportExport
             }
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            this.txtDBName.Clear();
-            this.txtPassword.Clear();
-            this.txtURL.Clear();
-            this.txtUser.Clear();
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -33,13 +33,14 @@ namespace ReportExport
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnButton = new System.Windows.Forms.Panel();
+            this.btnTest = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.pnSQL = new System.Windows.Forms.Panel();
             this.lblSQL = new System.Windows.Forms.Label();
             this.txtSQL = new System.Windows.Forms.TextBox();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnTest = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.lblDBName = new System.Windows.Forms.Label();
             this.lblPwd = new System.Windows.Forms.Label();
             this.txtDBName = new System.Windows.Forms.TextBox();
@@ -50,10 +51,9 @@ namespace ReportExport
             this.lblUser = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.pnButton = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.pnSQL.SuspendLayout();
             this.pnButton.SuspendLayout();
+            this.pnSQL.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,6 +72,57 @@ namespace ReportExport
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(533, 523);
             this.panel1.TabIndex = 0;
+            // 
+            // pnButton
+            // 
+            this.pnButton.Controls.Add(this.btnTest);
+            this.pnButton.Controls.Add(this.btnClose);
+            this.pnButton.Controls.Add(this.btnSave);
+            this.pnButton.Controls.Add(this.btnEdit);
+            this.pnButton.Location = new System.Drawing.Point(9, 498);
+            this.pnButton.Name = "pnButton";
+            this.pnButton.Size = new System.Drawing.Size(512, 33);
+            this.pnButton.TabIndex = 27;
+            // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(104, 2);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(113, 23);
+            this.btnTest.TabIndex = 24;
+            this.btnTest.Text = "Test Connection";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(384, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 21;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(223, 3);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 19;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(304, 2);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 25;
+            this.btnEdit.Text = "Edit SQL";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // pnSQL
             // 
@@ -102,46 +153,6 @@ namespace ReportExport
             this.txtSQL.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtSQL.Size = new System.Drawing.Size(439, 338);
             this.txtSQL.TabIndex = 22;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(354, 3);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 25;
-            this.btnEdit.Text = "Edit SQL";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnTest
-            // 
-            this.btnTest.Location = new System.Drawing.Point(111, 3);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(75, 23);
-            this.btnTest.TabIndex = 24;
-            this.btnTest.Text = "Test";
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(273, 3);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 21;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(192, 3);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 19;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblDBName
             // 
@@ -232,17 +243,6 @@ namespace ReportExport
             this.lblUser.TabIndex = 6;
             this.lblUser.Text = "User";
             // 
-            // pnButton
-            // 
-            this.pnButton.Controls.Add(this.btnTest);
-            this.pnButton.Controls.Add(this.btnReset);
-            this.pnButton.Controls.Add(this.btnSave);
-            this.pnButton.Controls.Add(this.btnEdit);
-            this.pnButton.Location = new System.Drawing.Point(9, 498);
-            this.pnButton.Name = "pnButton";
-            this.pnButton.Size = new System.Drawing.Size(512, 33);
-            this.pnButton.TabIndex = 27;
-            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,9 +255,9 @@ namespace ReportExport
             this.Load += new System.EventHandler(this.SettingForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pnButton.ResumeLayout(false);
             this.pnSQL.ResumeLayout(false);
             this.pnSQL.PerformLayout();
-            this.pnButton.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -270,7 +270,7 @@ namespace ReportExport
         private System.Windows.Forms.Label lblURL;
         private System.Windows.Forms.Label lblUser;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblDBName;
         private System.Windows.Forms.Label lblPwd;
