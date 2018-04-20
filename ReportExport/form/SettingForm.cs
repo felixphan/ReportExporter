@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
@@ -10,51 +11,97 @@ namespace ReportExport
     {
         public String sqlConnectionURL;
         public Boolean isConnected;
-        public SettingForm()
+       public SettingForm()
         {
             InitializeComponent();
             // Initial DB_URL
             if(this.txtURL.Text == "")
             {
-                this.txtURL.Text = resource.DB_URL;
+                var url = Registry.GetValue(@"HKEY_CURRENT_USER\ReportExport", "url", "");
+                if (url ==null)
+                {
+                    this.txtURL.Text = resource.DB_URL;
+                } else
+                {
+                    this.txtURL.Text = url.ToString();
+                }
             }
             // Initial User
             if (this.txtUser.Text == "")
             {
-                this.txtUser.Text = resource.USER;
+                var user = Registry.GetValue(@"HKEY_CURRENT_USER\ReportExport", "user", "");
+                if (user == null)
+                {
+                    this.txtUser.Text = resource.USER;
+                }
+                else
+                {
+                    this.txtUser.Text = user.ToString();
+                }
             }
             // Initial DB Name
             if(this.txtDBName.Text == "")
             {
-                this.txtDBName.Text = resource.DB_NAME;
+                var dbName = Registry.GetValue(@"HKEY_CURRENT_USER\ReportExport", "dbName", "");
+                if (dbName == null)
+                {
+                    this.txtDBName.Text = resource.DB_NAME;
+                }
+                else
+                {
+                    this.txtDBName.Text = dbName.ToString();
+                }
             }
             // Initial Password
             if(this.txtPassword.Text == "")
             {
-                this.txtPassword.Text = resource.PASSWORD;
+                var password = Registry.GetValue(@"HKEY_CURRENT_USER\ReportExport", "password", "");
+                if (password == null)
+                {
+                    this.txtPassword.Text = resource.PASSWORD;
+                }
+                else
+                {
+                    this.txtPassword.Text = password.ToString();
+                }
             }
             // Initial PathExport
             if (this.txtPathExport.Text == "")
             {
-                this.txtPathExport.Text = resource.PATH_EXPORT;
+                var pathExport = Registry.GetValue(@"HKEY_CURRENT_USER\ReportExport", "pathExport", "");
+                if (pathExport == null)
+                {
+                    this.txtPathExport.Text = resource.PATH_EXPORT;
+                }
+                else
+                {
+                    this.txtPathExport.Text = pathExport.ToString();
+                }
             }
             // Initial txtSQL
             if (this.txtSQL.Text == "")
             {
-                try
+                var sql = Registry.GetValue(@"HKEY_CURRENT_USER\ReportExport", "sql", "");
+                if (sql == null)
                 {
-                    StreamReader sr = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\lib\\sql\\sql.txt");
-                    var line = "";
-                    //Read it line-by-line
-                    while ((line = sr.ReadLine()) != null)
+                    try
                     {
-                        this.txtSQL.Text = this.txtSQL.Text + line + "\n";
+                        StreamReader sr = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\lib\\sql\\sql.txt");
+                        var line = "";
+                        //Read it line-by-line
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            this.txtSQL.Text = this.txtSQL.Text + line + "\n";
+                        }
+                        sr.Close();
                     }
-                    sr.Close();
-                }
-                catch (Exception es)
+                    catch (Exception es)
+                    {
+                        this.txtSQL.Clear();
+                    }
+                } else
                 {
-                    this.txtSQL.Clear();
+                    this.txtSQL.Text = sql.ToString();
                 }
             }
             this.isConnected = false;
@@ -72,10 +119,17 @@ namespace ReportExport
                 sqlConnection.Open();
                 sqlConnection.Close();
                 this.isConnected = true;
+                Registry.SetValue(@"HKEY_CURRENT_USER\ReportExport", "url", txtURL.Text);
+                Registry.SetValue(@"HKEY_CURRENT_USER\ReportExport", "user", txtUser.Text);
+                Registry.SetValue(@"HKEY_CURRENT_USER\ReportExport", "dbName", txtDBName.Text);
+                Registry.SetValue(@"HKEY_CURRENT_USER\ReportExport", "password", txtPassword.Text);
+                Registry.SetValue(@"HKEY_CURRENT_USER\ReportExport", "pathExport", txtPathExport.Text);
+                Registry.SetValue(@"HKEY_CURRENT_USER\ReportExport", "sql", txtSQL.Text);
                 this.Close();
             }
             catch (Exception es)
             {
+                MessageBox.Show(es.StackTrace);
                 MessageBox.Show("[FAILURE] Can not connect to database !");
             }
         }
