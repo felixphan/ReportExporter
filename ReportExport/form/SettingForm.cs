@@ -33,6 +33,11 @@ namespace ReportExport
             {
                 this.txtPassword.Text = resource.PASSWORD;
             }
+            // Initial PathExport
+            if (this.txtPathExport.Text == "")
+            {
+                this.txtPathExport.Text = resource.PATH_EXPORT;
+            }
             // Initial txtSQL
             if (this.txtSQL.Text == "")
             {
@@ -71,7 +76,7 @@ namespace ReportExport
             }
             catch (Exception es)
             {
-                MessageBox.Show("Connect Failed");
+                MessageBox.Show("[FAILURE] Can not connect to database !");
             }
         }
 
@@ -103,11 +108,11 @@ namespace ReportExport
                 SqlConnection sqlConnection = new SqlConnection(sqlConnectionURLTest);
                 sqlConnection.Open();
                 sqlConnection.Close();
-                MessageBox.Show("Connect Successful");
+                MessageBox.Show("[SUCCESS] Connect successful to database !");
             }
             catch (Exception es)
             {
-                MessageBox.Show("Connect Failed");
+                MessageBox.Show("[FAILURE] Can not connect to database !");
             }
         }
 

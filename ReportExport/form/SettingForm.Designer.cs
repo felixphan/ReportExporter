@@ -33,6 +33,7 @@ namespace ReportExport
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label = new System.Windows.Forms.Label();
             this.pnButton = new System.Windows.Forms.Panel();
             this.btnTest = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -51,6 +52,9 @@ namespace ReportExport
             this.lblUser = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.txtHeadCode = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtPathExport = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.pnButton.SuspendLayout();
             this.pnSQL.SuspendLayout();
@@ -58,6 +62,10 @@ namespace ReportExport
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txtPathExport);
+            this.panel1.Controls.Add(this.txtHeadCode);
+            this.panel1.Controls.Add(this.label);
             this.panel1.Controls.Add(this.pnButton);
             this.panel1.Controls.Add(this.pnSQL);
             this.panel1.Controls.Add(this.lblDBName);
@@ -72,6 +80,18 @@ namespace ReportExport
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(533, 523);
             this.panel1.TabIndex = 0;
+            // 
+            // label
+            // 
+            this.label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(8, 119);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(64, 13);
+            this.label.TabIndex = 28;
+            this.label.Text = "HEAD code";
             // 
             // pnButton
             // 
@@ -136,7 +156,7 @@ namespace ReportExport
             // lblSQL
             // 
             this.lblSQL.AutoSize = true;
-            this.lblSQL.Location = new System.Drawing.Point(3, 11);
+            this.lblSQL.Location = new System.Drawing.Point(35, 8);
             this.lblSQL.Name = "lblSQL";
             this.lblSQL.Size = new System.Drawing.Size(28, 13);
             this.lblSQL.TabIndex = 23;
@@ -160,7 +180,7 @@ namespace ReportExport
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDBName.AutoSize = true;
-            this.lblDBName.Location = new System.Drawing.Point(6, 88);
+            this.lblDBName.Location = new System.Drawing.Point(19, 87);
             this.lblDBName.Name = "lblDBName";
             this.lblDBName.Size = new System.Drawing.Size(53, 13);
             this.lblDBName.TabIndex = 18;
@@ -172,7 +192,7 @@ namespace ReportExport
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPwd.AutoSize = true;
-            this.lblPwd.Location = new System.Drawing.Point(6, 121);
+            this.lblPwd.Location = new System.Drawing.Point(274, 50);
             this.lblPwd.Name = "lblPwd";
             this.lblPwd.Size = new System.Drawing.Size(53, 13);
             this.lblPwd.TabIndex = 16;
@@ -183,9 +203,9 @@ namespace ReportExport
             this.txtDBName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDBName.Location = new System.Drawing.Point(79, 84);
+            this.txtDBName.Location = new System.Drawing.Point(82, 84);
             this.txtDBName.Name = "txtDBName";
-            this.txtDBName.Size = new System.Drawing.Size(440, 20);
+            this.txtDBName.Size = new System.Drawing.Size(436, 20);
             this.txtDBName.TabIndex = 15;
             // 
             // txtPassword
@@ -193,10 +213,10 @@ namespace ReportExport
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPassword.Location = new System.Drawing.Point(79, 118);
+            this.txtPassword.Location = new System.Drawing.Point(333, 47);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(440, 20);
+            this.txtPassword.Size = new System.Drawing.Size(185, 20);
             this.txtPassword.TabIndex = 17;
             // 
             // txtUser
@@ -204,9 +224,9 @@ namespace ReportExport
             this.txtUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUser.Location = new System.Drawing.Point(79, 47);
+            this.txtUser.Location = new System.Drawing.Point(82, 47);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(440, 20);
+            this.txtUser.Size = new System.Drawing.Size(186, 20);
             this.txtUser.TabIndex = 7;
             // 
             // txtURL
@@ -214,9 +234,9 @@ namespace ReportExport
             this.txtURL.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtURL.Location = new System.Drawing.Point(79, 13);
+            this.txtURL.Location = new System.Drawing.Point(82, 13);
             this.txtURL.Name = "txtURL";
-            this.txtURL.Size = new System.Drawing.Size(439, 20);
+            this.txtURL.Size = new System.Drawing.Size(436, 20);
             this.txtURL.TabIndex = 5;
             // 
             // lblURL
@@ -225,11 +245,11 @@ namespace ReportExport
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblURL.AutoSize = true;
-            this.lblURL.Location = new System.Drawing.Point(6, 16);
+            this.lblURL.Location = new System.Drawing.Point(3, 16);
             this.lblURL.Name = "lblURL";
-            this.lblURL.Size = new System.Drawing.Size(47, 13);
+            this.lblURL.Size = new System.Drawing.Size(69, 13);
             this.lblURL.TabIndex = 4;
-            this.lblURL.Text = "DB URL";
+            this.lblURL.Text = "Server Name";
             // 
             // lblUser
             // 
@@ -237,11 +257,43 @@ namespace ReportExport
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(6, 50);
+            this.lblUser.Location = new System.Drawing.Point(43, 50);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(29, 13);
             this.lblUser.TabIndex = 6;
             this.lblUser.Text = "User";
+            // 
+            // txtHeadCode
+            // 
+            this.txtHeadCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtHeadCode.Location = new System.Drawing.Point(82, 116);
+            this.txtHeadCode.Name = "txtHeadCode";
+            this.txtHeadCode.Size = new System.Drawing.Size(186, 20);
+            this.txtHeadCode.TabIndex = 29;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(269, 119);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Path Export";
+            // 
+            // txtPathExport
+            // 
+            this.txtPathExport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPathExport.Location = new System.Drawing.Point(333, 116);
+            this.txtPathExport.Name = "txtPathExport";
+            this.txtPathExport.Size = new System.Drawing.Size(185, 20);
+            this.txtPathExport.TabIndex = 31;
             // 
             // SettingForm
             // 
@@ -283,5 +335,9 @@ namespace ReportExport
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Panel pnSQL;
         private System.Windows.Forms.Panel pnButton;
+        private System.Windows.Forms.Label label;
+        public System.Windows.Forms.TextBox txtHeadCode;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox txtPathExport;
     }
 }

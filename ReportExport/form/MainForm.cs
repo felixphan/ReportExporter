@@ -10,6 +10,7 @@ namespace ReportExport
         List<Data> datas;
         private Service service;
         private SettingForm settingForm;
+        private String sqlQuery;
         public MainForm()
         {
             InitializeComponent();
@@ -28,7 +29,6 @@ namespace ReportExport
         private void btnReset_Click(object sender, EventArgs e)
         {
             // Clear all data
-            this.txtRepairNo.Clear();
             dtpFrom.Value = DateTime.Now.AddDays(-30);
             dtpTo.Value = DateTime.Now;
             // Clear Resource
@@ -38,16 +38,14 @@ namespace ReportExport
 
         private async void btnView_Click(object sender, EventArgs e)
         {
-            //TODO: Append data from header no and date to settingForm.txtSQL;
-            String defaultSql = settingForm.txtSQL.Text;
-            String sqlCommand = defaultSql.Replace("{head_code}", txtRepairNo.Text)
-                .Replace("{from_date}", dtpFrom.Value.ToString("yyyy/MM/dd HH:mm:ss"))
-                .Replace("{to_date}", dtpTo.Value.ToString("yyyy/MM/dd HH:mm:ss"));
-
             // Get Data
             pbLoading.Show();
             pbLoading.Update();
-            datas = await service.getDatas(settingForm.sqlConnectionURL, sqlCommand);
+            // Query
+            sqlQuery = settingForm.txtSQL.Text.Replace("{head_code}", settingForm.txtHeadCode.Text)
+                .Replace("{from_date}", dtpFrom.Value.ToString("yyyy/MM/dd HH:mm:ss"))
+                .Replace("{to_date}", dtpTo.Value.ToString("yyyy/MM/dd HH:mm:ss"));
+            datas = await service.getDatas(settingForm.sqlConnectionURL, sqlQuery);
             pbLoading.Hide();
             // Binding Data to Data Grid View
             var bindingList = new BindingList<Data>(datas);
@@ -55,10 +53,18 @@ namespace ReportExport
             dgvData.DataSource = source;
         }
 
-        private void btnExportClick(object sender, EventArgs e)
+        private async void btnExportClick(object sender, EventArgs e)
         {
-            service.export();
-            MessageBox.Show("Export Succesfully");
+            // Get data
+            // Query
+            sqlQuery = settingForm.txtSQL.Text.Replace("{head_code}", settingForm.txtHeadCode.Text)
+                .Replace("{from_date}", dtpFrom.Value.ToString("yyyy/MM/dd HH:mm:ss"))
+                .Replace("{to_date}", dtpTo.Value.ToString("yyyy/MM/dd HH:mm:ss"));
+            datas = await service.getDatas(settingForm.sqlConnectionURL, sqlQuery);
+            // Export
+            string pathExport = settingForm.txtPathExport.Text;
+            service.export(pathExport);
+            MessageBox.Show("[SUCCESS] Export file: " + pathExport + "/ExportSCTT_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx");
         }
 
         private void btnSetting_Click(object sender, EventArgs e)

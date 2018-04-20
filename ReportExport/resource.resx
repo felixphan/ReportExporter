@@ -121,7 +121,7 @@
     <value>showroomhonda</value>
   </data>
   <data name="DB_URL" xml:space="preserve">
-    <value>MAYTINH-E66KDAM\SQLEXPRESS</value>
+    <value>ADMINISTRATOR\SQLEXPRESS</value>
   </data>
   <data name="PASSWORD" xml:space="preserve">
     <value>123456</value>

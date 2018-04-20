@@ -11,10 +11,10 @@ namespace ReportExport
     class Service
     {
         List<Data> datas;
-        public void export()
+        public void export(string pathExport)
         {
             IWorkbook workbook = new XSSFWorkbook();
-            ISheet sheet = workbook.CreateSheet("Export Sheet");
+            ISheet sheet = workbook.CreateSheet("SCTT Report");
             //Row 0
             IRow row = sheet.CreateRow(0);
             // Create column
@@ -130,7 +130,6 @@ namespace ReportExport
                 }
             }
 
-            String pathExport = resource.PATH_EXPORT;
             using (var file = new FileStream(pathExport + "ExportSCTT_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx", FileMode.CreateNew, FileAccess.ReadWrite))
             {
                 workbook.Write(file);

@@ -32,13 +32,11 @@ namespace ReportExport
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnExport = new System.Windows.Forms.Button();
-            this.lblRepairNo = new System.Windows.Forms.Label();
             this.lblCreateFrom = new System.Windows.Forms.Label();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
-            this.txtRepairNo = new System.Windows.Forms.TextBox();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnSetting = new System.Windows.Forms.Button();
@@ -57,24 +55,12 @@ namespace ReportExport
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExportClick);
             // 
-            // lblRepairNo
-            // 
-            this.lblRepairNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblRepairNo.AutoSize = true;
-            this.lblRepairNo.Location = new System.Drawing.Point(13, 15);
-            this.lblRepairNo.Name = "lblRepairNo";
-            this.lblRepairNo.Size = new System.Drawing.Size(58, 13);
-            this.lblRepairNo.TabIndex = 4;
-            this.lblRepairNo.Text = "Repair No.";
-            // 
             // lblCreateFrom
             // 
             this.lblCreateFrom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCreateFrom.AutoSize = true;
-            this.lblCreateFrom.Location = new System.Drawing.Point(415, 15);
+            this.lblCreateFrom.Location = new System.Drawing.Point(18, 13);
             this.lblCreateFrom.Name = "lblCreateFrom";
             this.lblCreateFrom.Size = new System.Drawing.Size(64, 13);
             this.lblCreateFrom.TabIndex = 5;
@@ -86,7 +72,7 @@ namespace ReportExport
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dtpFrom.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFrom.Location = new System.Drawing.Point(485, 12);
+            this.dtpFrom.Location = new System.Drawing.Point(88, 10);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(155, 20);
             this.dtpFrom.TabIndex = 6;
@@ -97,7 +83,7 @@ namespace ReportExport
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dtpTo.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTo.Location = new System.Drawing.Point(646, 12);
+            this.dtpTo.Location = new System.Drawing.Point(249, 10);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(167, 20);
             this.dtpTo.TabIndex = 7;
@@ -121,15 +107,6 @@ namespace ReportExport
             this.btnView.Text = "View";
             this.btnView.UseVisualStyleBackColor = true;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
-            // 
-            // txtRepairNo
-            // 
-            this.txtRepairNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtRepairNo.Location = new System.Drawing.Point(81, 12);
-            this.txtRepairNo.Name = "txtRepairNo";
-            this.txtRepairNo.Size = new System.Drawing.Size(304, 20);
-            this.txtRepairNo.TabIndex = 5;
             // 
             // dgvData
             // 
@@ -180,8 +157,6 @@ namespace ReportExport
             this.ClientSize = new System.Drawing.Size(874, 404);
             this.Controls.Add(this.pbLoading);
             this.Controls.Add(this.btnSetting);
-            this.Controls.Add(this.txtRepairNo);
-            this.Controls.Add(this.lblRepairNo);
             this.Controls.Add(this.lblCreateFrom);
             this.Controls.Add(this.dgvData);
             this.Controls.Add(this.dtpFrom);
@@ -203,13 +178,11 @@ namespace ReportExport
         #endregion
 
         private System.Windows.Forms.Button btnExport;
-        private System.Windows.Forms.Label lblRepairNo;
         private System.Windows.Forms.Label lblCreateFrom;
         private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnView;
-        private System.Windows.Forms.TextBox txtRepairNo;
         private System.Windows.Forms.DataGridView dgvData;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnSetting;

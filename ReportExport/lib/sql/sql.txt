@@ -18,7 +18,7 @@ SELECT
 	, a.Diachi AS D_CODE
 	, a.Diachi AS D_NAME
 	, c.HoTen AS EMP_RECEIVE
-	, '' AS EMP_REPAIR
+	, x.HoTen AS EMP_REPAIR
 	, '' AS FUEL
 	, '' AS PRINTED
 	, a.NgayGioVao AS DATE_IN
@@ -46,5 +46,17 @@ LEFT JOIN tblDanhMuc b ON b.MaDanhMuc = 'DMLoaiXeMay' AND a.LoaiXeId = b.ID
 LEFT JOIN tblUserEXIM c ON a.CreateID = c.ID
 LEFT JOIN tblPhieuDichVuCT f ON a.ID = f.PhieuDvID
 LEFT JOIN tblHangHoa g ON f.HangHoaID = g.ID
+LEFT JOIN (SELECT
+				t1.ServiceId
+				, t2.HoTen
+			FROM (
+				SELECT
+					x.ServiceId
+					, max(x.StaffId) as StaffId
+				FROM tblStaffCardService x
+				GROUP BY x.ServiceId
+			) t1
+			LEFT JOIN tblNhanVien t2 on t1.StaffId = t2.ID
+) x ON a.ID = x.ServiceId
 WHERE a.UpdateDate BETWEEN CAST('{from_date}' AS datetime) AND CAST('{to_date}' AS datetime)
 ;
