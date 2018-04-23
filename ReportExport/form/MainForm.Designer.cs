@@ -169,6 +169,7 @@ namespace ReportExport
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).EndInit();
             this.ResumeLayout(false);

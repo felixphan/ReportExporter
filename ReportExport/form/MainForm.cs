@@ -11,6 +11,7 @@ namespace ReportExport
         private Service service;
         private SettingForm settingForm;
         private String sqlQuery;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Program));
         public MainForm()
         {
             InitializeComponent();
@@ -89,6 +90,11 @@ namespace ReportExport
                 this.btnView.Enabled = false;
                 this.btnExport.Enabled = false;
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            log.Info("Load Main Form");
         }
     }
 }
