@@ -79,6 +79,15 @@ namespace ReportExport {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Honda.
+        /// </summary>
+        internal static string HEAD_CODE {
+            get {
+                return ResourceManager.GetString("HEAD_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 123456.
         /// </summary>
         internal static string PASSWORD {

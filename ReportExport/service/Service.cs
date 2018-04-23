@@ -130,7 +130,7 @@ namespace ReportExport
                 }
             }
 
-            using (var file = new FileStream(pathExport + "ExportSCTT_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx", FileMode.CreateNew, FileAccess.ReadWrite))
+            using (var file = new FileStream(pathExport + "/ExportSCTT_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx", FileMode.CreateNew, FileAccess.ReadWrite))
             {
                 workbook.Write(file);
             }

@@ -20,7 +20,7 @@ namespace ReportExport
             // Initialize Service
             service = new Service();
             //Disable Button
-            this.btnView.Enabled = false;
+            this.btnView.Enabled = true;
             this.btnExport.Enabled = false;
             //Initial Setting Form
             settingForm = new SettingForm();
@@ -38,6 +38,7 @@ namespace ReportExport
 
         private async void btnView_Click(object sender, EventArgs e)
         {
+            btnView.Enabled = false;
             // Get Data
             pbLoading.Show();
             pbLoading.Update();
@@ -51,10 +52,12 @@ namespace ReportExport
             var bindingList = new BindingList<Data>(datas);
             var source = new BindingSource(bindingList, null);
             dgvData.DataSource = source;
+            btnView.Enabled = true;
         }
 
         private async void btnExportClick(object sender, EventArgs e)
         {
+            btnExport.Enabled = false;
             // Get data
             // Query
             sqlQuery = settingForm.txtSQL.Text.Replace("{head_code}", settingForm.txtHeadCode.Text)
@@ -65,6 +68,7 @@ namespace ReportExport
             string pathExport = settingForm.txtPathExport.Text;
             service.export(pathExport);
             MessageBox.Show("[SUCCESS] Export file: " + pathExport + "/ExportSCTT_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx");
+            btnExport.Enabled = true;
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
