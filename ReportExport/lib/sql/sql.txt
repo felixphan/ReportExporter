@@ -2,7 +2,7 @@ SELECT
 	a.ID
 	, '{head_code}' AS DEALER_CODE
 	, a.UpdateDate AS CREATEDATE
-	, '{head_code}' + '-' + format(getdate(), 'ddMMyy') + '-' + a.SoPhieu + '-O' AS REPAIR_NO
+	, '{head_code}' + '-' + convert(varchar, a.UpdateDate, 112) + '-' + a.SoPhieu + '-O' AS REPAIR_NO
 	, b.TenGoi AS TYPE_CD
 	, '' AS WR_NO
 	, a.Sokhung AS FRAME_NO

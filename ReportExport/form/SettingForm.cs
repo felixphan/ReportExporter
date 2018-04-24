@@ -13,7 +13,8 @@ namespace ReportExport
         public Boolean isConnected;
         public static string AppName = "HondaDataExporter";
         public static string BaseSettingStorage = @"HKEY_CURRENT_USER\HondaDataExporter";
-       public SettingForm()
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SettingForm));
+        public SettingForm()
         {
             InitializeComponent();
             // Initial DB_URL
@@ -110,15 +111,17 @@ namespace ReportExport
                         }
                         sr.Close();
                     }
-                    catch (Exception es)
+                    catch (Exception ex)
                     {
                         this.txtSQL.Clear();
+                        log.Error(ex.StackTrace);
                     }
                 } else
                 {
                     this.txtSQL.Text = sql.ToString();
                 }
             }
+            sqlConnectionURL = "server=" + txtURL.Text + ";database=" + txtDBName.Text + ";UID=" + txtUser.Text + ";password=" + txtPassword.Text;
             this.isConnected = false;
             this.pnSQL.Height = 0;
             this.pnButton.Location = new Point(this.pnButton.Location.X, this.pnButton.Location.Y - 350);
@@ -143,9 +146,9 @@ namespace ReportExport
                 Registry.SetValue(BaseSettingStorage, "sql", txtSQL.Text);
                 this.Close();
             }
-            catch (Exception es)
+            catch (Exception ex)
             {
-                MessageBox.Show(es.StackTrace);
+                log.Error(ex.StackTrace);
                 MessageBox.Show("[FAILURE] Can not connect to database !");
             }
         }
@@ -180,8 +183,9 @@ namespace ReportExport
                 sqlConnection.Close();
                 MessageBox.Show("[SUCCESS] Connect successful to database !");
             }
-            catch (Exception es)
+            catch (Exception ex)
             {
+                log.Error(ex.StackTrace);
                 MessageBox.Show("[FAILURE] Can not connect to database !");
             }
         }
